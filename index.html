@@ -1,186 +1,72 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#050608">
-<title>Angelica Rejan Silva — Desenvolvedora Full Stack</title>
-<meta name="description" content="Angelica Rejan Silva — Desenvolvedora Full Stack, Condução Técnica de IA e RPA. Python, Next.js, JavaScript, Data Lake & Banco de Dados.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="Portfólio de Angelica Rejan Silva: desenvolvimento full stack, IA, automação e dados aplicados a operações reais.">
+  <title>Angelica Rejan | Tecnologia que entende a operação</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span id="progress"></span></div>
 
-<div class="noise" aria-hidden="true"></div>
-<div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="#inicio" aria-label="Ir para o início"><span>AR</span><b>ANGELICA REJAN</b></a>
+    <nav id="navLinks" aria-label="Navegação principal"><a href="#cases">Cases</a><a href="#sobre">Sobre</a><a href="#trajetoria">Trajetória</a><a href="#contato">Contato</a></nav>
+    <a class="header-link" href="https://github.com/angelrejansilva-sketch" target="_blank" rel="noreferrer">GitHub ↗</a>
+    <button class="menu-button" id="menuButton" type="button" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button>
+  </header>
 
-<header class="nav" id="nav">
-  <div class="nav-inner">
-    <a href="#top" class="logo"><span class="logo-mark" aria-hidden="true"></span>A<span>R</span>S</a>
-    <nav class="nav-links" id="navLinks">
-      <a href="#sobre">Sobre</a>
-      <a href="#stack">Stack</a>
-      <a href="#projetos">Projetos</a>
-      <a href="#contato">Contato</a>
-    </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</header>
-
-<main>
-  <section class="hero" id="top">
-    <div class="hero-grid" aria-hidden="true"></div>
-
-    <div class="hero-copy">
-      <p class="hero-kicker"><span>01 /</span> FULL STACK &amp; CONDUÇÃO DE IA</p>
-      <div class="name-stage">
-        <h1>
-          <span class="name-line name-line-one" data-text="ANGELICA">ANGELICA</span>
-          <span class="name-line name-line-two" data-text="REJAN SILVA">REJAN SILVA</span>
-        </h1>
-        <span class="name-index">LONDRINA<br>BRASIL</span>
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-copy reveal">
+        <p class="availability"><i></i> Londrina, PR · aberta a novos desafios</p>
+        <p class="chapter">01 — FULL STACK, IA &amp; AUTOMAÇÃO</p>
+        <h1>Tecnologia que<br><em>entende a operação.</em></h1>
+        <p class="hero-text">Eu transformo processos instáveis e trabalho manual em produtos digitais confiáveis. Faço isso conectando a experiência de quem conhece a operação por dentro com desenvolvimento de ponta a ponta.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#cases">Conhecer meus cases <span>↓</span></a><a class="text-link" href="https://www.linkedin.com/in/angelica-r-aa426b35" target="_blank" rel="noreferrer">LinkedIn ↗</a></div>
       </div>
-      <p class="hero-desc">15+ anos em tecnologia construindo soluções que realmente entram em produção — automação inteligente, agentes de IA e dados com qualidade e rastreabilidade.</p>
-      <div class="hero-actions">
-        <a href="#projetos" class="primary-action">Explorar projetos <span aria-hidden="true">↘</span></a>
-        <div class="social-actions">
-          <a href="mailto:angelicarejan@outlook.com" aria-label="E-mail de Angelica"><span>EM</span></a>
-          <a href="https://www.linkedin.com/in/angelica-r-aa426b35" target="_blank" rel="noopener" aria-label="LinkedIn de Angelica"><span>IN</span></a>
-        </div>
+      <div class="hero-visual reveal">
+        <div class="portrait-halo" aria-hidden="true"></div>
+        <figure class="portrait" id="portrait"><img src="assets/angelica-hero.webp" alt="Retrato de Angelica Rejan Silva" width="640" height="1120"><figcaption><span>DESENVOLVEDORA FULL STACK</span><span>15+ ANOS EM TECNOLOGIA</span></figcaption></figure>
+        <span class="visual-note note-one">produto + processo</span><span class="visual-note note-two">dados + decisão</span><span class="visual-index">ARS / 2026</span>
       </div>
-    </div>
+      <div class="hero-proof"><div><strong>15+</strong><span>anos construindo repertório técnico</span></div><div><strong>360°</strong><span>do processo ao produto em produção</span></div><div><strong>5</strong><span>áreas conectadas como stakeholders</span></div></div>
+    </section>
 
-    <div class="portrait-zone" aria-label="Foto de Angelica Rejan Silva">
-      <div class="orbit orbit-one" aria-hidden="true"><span>FULL STACK</span><span>IA</span><span>DADOS</span></div>
-      <div class="orbit orbit-two" aria-hidden="true"></div>
-      <div class="photo-frame portrait-card">
-        <div class="portrait-scan" aria-hidden="true"></div>
-        <img src="assets/angelica-hero.webp" alt="Retrato de Angelica Rejan Silva" width="640" height="1120">
-        <div class="portrait-meta"><span>ARS // FULL STACK</span><span>BRASIL</span></div>
+    <section class="cases section-shell" id="cases">
+      <div class="section-heading reveal"><div><p class="chapter">02 — TRABALHO SELECIONADO</p><h2>Problemas reais.<br><em>Soluções que permanecem.</em></h2></div><p>Projetos apresentados pelo desafio, pela decisão técnica e pelo impacto — sem expor informações confidenciais.</p></div>
+      <div class="case-list" id="caseList"></div>
+    </section>
+
+    <dialog id="caseDialog" class="case-dialog" aria-labelledby="dialogTitle"><button id="dialogClose" class="dialog-close" type="button" aria-label="Fechar">×</button><p class="chapter" id="dialogIndex"></p><h2 id="dialogTitle"></h2><p class="dialog-intro" id="dialogIntro"></p><div class="dialog-columns"><div><span>CENÁRIO</span><p id="dialogChallenge"></p></div><div><span>MINHA RESPOSTA</span><p id="dialogSolution"></p></div></div><div class="dialog-tags" id="dialogTags"></div></dialog>
+
+    <section class="about" id="sobre">
+      <div class="section-shell about-grid reveal">
+        <div class="about-title"><p class="chapter">03 — SOBRE MIM</p><h2>Minha vantagem não é conhecer uma ferramenta.<br><em>É saber onde ela faz diferença.</em></h2></div>
+        <div class="about-story"><p class="lead">Minha carreira começou no atendimento e no suporte, passou pelo campo, pela coordenação operacional e chegou ao desenvolvimento full stack.</p><p>Essa trajetória me ensinou a investigar antes de construir. Hoje conduzo iniciativas de IA e RPA, desenvolvo backend, frontend e dados, realizo QA e alinho decisões com TI, Logística, Operações, Financeiro e Treinamento.</p><blockquote>“Eu não automatizo por automatizar. Eu entendo o fluxo, elimino o atrito e construo controle.”</blockquote></div>
+        <div class="principles"><article><span>01</span><h3>Clareza antes do código</h3><p>Mapear regras, riscos e pessoas envolvidas evita construir a solução errada.</p></article><article><span>02</span><h3>Governança desde a base</h3><p>Acesso, auditoria e rastreabilidade fazem parte do produto, não do acabamento.</p></article><article><span>03</span><h3>Entrega que evolui</h3><p>QA, feedback e leitura de resultado transformam uma primeira versão em produto.</p></article></div>
       </div>
-      <div class="floating-code" aria-hidden="true">&lt;build_ideas /&gt;</div>
-    </div>
+    </section>
 
-    <div class="hero-footer">
-      <span>ROLE <b>FULL STACK / CONDUÇÃO DE IA</b></span>
-      <span>FOCO <b>PRODUÇÃO &amp; IMPACTO</b></span>
-      <a href="#sobre">SCROLL <span aria-hidden="true">↘</span></a>
-    </div>
-  </section>
+    <section class="capabilities section-shell" id="stack">
+      <div class="capability-intro reveal"><p class="chapter">04 — CAPACIDADES</p><h2>Uma profissional,<br><em>quatro perspectivas.</em></h2><p>Combino engenharia, automação, inteligência e dados de acordo com o problema — nunca o contrário.</p></div>
+      <div class="capability-board reveal"><article><span>01 / BUILD</span><h3>Produtos digitais</h3><p>Next.js · JavaScript · HTML/CSS · APIs</p></article><article><span>02 / AUTOMATE</span><h3>Automação inteligente</h3><p>Python · Power Automate · n8n · Make</p></article><article><span>03 / THINK</span><h3>IA aplicada</h3><p>Agentes · MCP · IA generativa · Meta APIs</p></article><article><span>04 / TRUST</span><h3>Dados confiáveis</h3><p>SQL · PostgreSQL · Supabase · Data Lake · ETL</p></article></div>
+    </section>
 
-  <section class="section" id="sobre">
-    <div class="about-rail" aria-hidden="true"><span class="vertical-label">HUMAN + TECHNOLOGY</span></div>
-    <div class="section-inner reveal">
-      <p class="section-tag"><span>02 /</span> SOBRE MIM</p>
-      <h2>Não construo só telas.<br><em>Resolvo operação.</em></h2>
-      <div class="about-copy-grid">
-        <p class="about-lead">Sou desenvolvedora de sistemas e inteligência artificial com olhar para o todo: <strong>negócio, dados e resultado.</strong></p>
-        <p>Identifiquei um problema crítico de estabilidade na operação de atendimento e construí, do zero, uma plataforma própria de automação — trocando a dependência de ferramenta externa por controle total do time.</p>
+    <section class="journey" id="trajetoria">
+      <div class="section-shell reveal"><div class="section-heading"><div><p class="chapter">05 — TRAJETÓRIA</p><h2>Construí tecnologia<br><em>de dentro para fora.</em></h2></div><p>Uma evolução guiada por diagnóstico, responsabilidade operacional e vontade de resolver melhor.</p></div><div class="timeline"><article><time>2025 — agora</time><div><p>Positivo Tecnologia</p><h3>Desenvolvimento Full Stack &amp; condução técnica de IA e RPA</h3><span>Produtos, automação, dados, QA e gestão de stakeholders.</span></div></article><article><time>2023 — 2025</time><div><p>Positivo Tecnologia</p><h3>Gestão operacional e atendimento técnico</h3><span>Backlog, SLA, roteirização e decisão para operações de campo no Sul.</span></div></article><article><time>2007 — 2023</time><div><p>Onixsat · MStech · 3S · Atos · Positivo</p><h3>Suporte, campo, treinamento e liderança técnica</h3><span>Da causa raiz à documentação, da implantação à formação de equipes.</span></div></article></div>
+        <div class="education"><p class="chapter">FORMAÇÃO EM MOVIMENTO</p><div><strong>MBA em Inteligência Artificial</strong><span>Faculdade Líbano · 2025–2026</span></div><div><strong>MBA em Business Intelligence</strong><span>Faculdade Líbano · 2025–2026</span></div><div><strong>ADS + MBA em Gestão de TI</strong><span>UNOPAR · 2019–2023</span></div></div>
       </div>
-      <div class="console reveal">
-        <div class="console-head"><span>ATUAÇÃO</span><span class="console-online">● ONLINE</span></div>
-        <div class="console-row"><span>01</span><div><strong>Visão de ponta a ponta</strong><small>Do mapeamento do problema ao código em produção — 15+ anos em tecnologia.</small></div></div>
-        <div class="console-row"><span>02</span><div><strong>Automação com governança</strong><small>Plataforma própria criada do zero, com RBAC e auditoria desde a camada de banco.</small></div></div>
-        <div class="console-row"><span>03</span><div><strong>IA aplicada à operação</strong><small>Agentes e análise por IA integrados ao dia a dia do time.</small></div></div>
-        <div class="console-row"><span>04</span><div><strong>Gestão de stakeholders</strong><small>TI, Logística, Operações, Financeiro e Treinamento.</small></div></div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="stack" class="stack-section reveal">
-    <div class="section-shell stack-layout">
-      <div class="stack-title">
-        <p class="section-tag"><span>03 /</span> MATRIZ DE DOMÍNIO</p>
-        <h2>TECNOLOGIA<br><em>COM PROPÓSITO.</em></h2>
-        <p>Uma stack multidisciplinar para conectar interfaces, automações, dados e inteligência.</p>
-      </div>
-      <div class="stack-orbit" aria-label="Tecnologias e competências">
-        <div class="core-sphere"><strong>◈</strong><span>ARS<br>DEV CORE</span></div>
-        <div class="stack-node node-1"><strong>✣</strong><span>IA &amp; Agentes</span><small>INTELIGÊNCIA</small></div>
-        <div class="stack-node node-2"><strong>&lt;/&gt;</strong><span>Next.js &amp; JS</span><small>INTERFACES</small></div>
-        <div class="stack-node node-3"><strong>_&gt;</strong><span>Python</span><small>ENGENHARIA</small></div>
-        <div class="stack-node node-4"><strong>▦</strong><span>Supabase</span><small>DADOS</small></div>
-        <div class="stack-node node-5"><strong>⌁</strong><span>Power Automate</span><small>AUTOMAÇÃO</small></div>
-        <div class="stack-node node-6"><strong>◫</strong><span>PostgreSQL</span><small>BANCO</small></div>
-        <div class="orbit-path path-one" aria-hidden="true"></div>
-        <div class="orbit-path path-two" aria-hidden="true"></div>
-      </div>
-    </div>
-    <div class="stack-ticker section-shell"><span>MCP</span><i></i><span>N8N</span><i></i><span>RBAC</span><i></i><span>DATA LAKE</span><i></i><span>SQL</span><i></i><span>CLAUDE API</span></div>
-  </section>
-
-  <section class="section" id="projetos">
-    <div class="section-inner reveal">
-      <p class="section-tag"><span>04 /</span> PROJETOS</p>
-      <h2>Sistemas que resolvem<br><em>problemas reais.</em></h2>
-      <div class="projects-grid" id="projectsGrid"></div>
-    </div>
-  </section>
-
-  <dialog class="project-dialog" id="projectDialog" aria-labelledby="dialogTitle">
-    <button type="button" class="dialog-close" id="dialogClose" aria-label="Fechar detalhes">×</button>
-    <p class="dialog-index" id="dialogIndex"></p>
-    <h3 id="dialogTitle"></h3>
-    <p class="dialog-summary" id="dialogSummary"></p>
-    <div class="dialog-grid">
-      <div><span>O desafio</span><p id="dialogChallenge"></p></div>
-      <div><span>A solução</span><p id="dialogSolution"></p></div>
-    </div>
-    <div class="dialog-tags" id="dialogTags"></div>
-  </dialog>
-
-  <section class="method-section section-shell reveal">
-    <div class="method-heading">
-      <p class="section-tag"><span>05 /</span> COMO EU TRABALHO</p>
-      <h2>DO PROBLEMA<br>AO <em>IMPACTO.</em></h2>
-    </div>
-    <div class="method-flow">
-      <article><span>01</span><div class="method-icon"><span aria-hidden="true">◆</span></div><h3>ENTENDER</h3><p>Investigo a operação antes de pensar na interface.</p></article>
-      <article><span>02</span><div class="method-icon"><span aria-hidden="true">◆</span></div><h3>CONECTAR</h3><p>Uno negócio, dados e possibilidades técnicas.</p></article>
-      <article><span>03</span><div class="method-icon"><span aria-hidden="true">◆</span></div><h3>CONSTRUIR</h3><p>Desenvolvo experiências claras, robustas e escaláveis.</p></article>
-      <article><span>04</span><div class="method-icon"><span aria-hidden="true">◆</span></div><h3>EVOLUIR</h3><p>Valido, mensuro e transformo feedback em melhoria.</p></article>
-    </div>
-  </section>
-
-  <section class="section" id="formacao">
-    <div class="section-inner reveal">
-      <p class="section-tag"><span>06 /</span> FORMAÇÃO</p>
-      <h2>Formação &amp; <em>certificações.</em></h2>
-      <ul class="edu-list">
-        <li><strong>MBA em Inteligência de Negócios (BI)</strong><span>Faculdade Líbano · 2025–2026</span></li>
-        <li><strong>MBA em Inteligência Artificial</strong><span>Faculdade Líbano · 2025–2026</span></li>
-        <li><strong>Análise e Desenvolvimento de Sistemas</strong><span>UNOPAR · 2019–2022</span></li>
-      </ul>
-      <div class="cert-tags">
-        <span>Cibersegurança para TI</span>
-        <span>Fundamentos de Gestão de Projetos</span>
-        <span>Colaboração em Equipe</span>
-      </div>
-    </div>
-  </section>
-
-  <section class="section contact" id="contato">
-    <div class="section-inner reveal">
-      <p class="section-tag"><span>07 /</span> CONTATO</p>
-      <h2>Vamos conversar?</h2>
-      <p class="lead">Aberta a novas oportunidades e conexões em desenvolvimento full stack, IA e automação.</p>
-      <div class="contact-row">
-        <a href="mailto:angelicarejan@outlook.com">angelicarejan@outlook.com</a>
-        <a href="tel:+5543996436991">(43) 99643-6991</a>
-        <a href="https://www.linkedin.com/in/angelica-r-aa426b35" target="_blank" rel="noopener">/in/angelica-r-aa426b35</a>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer class="footer">
-  <p>&copy; <span id="year"></span> Angelica Rejan Silva. Todos os direitos reservados.</p>
-</footer>
-
-<script src="script.js"></script>
+    <section class="contact section-shell" id="contato"><p class="chapter">06 — PRÓXIMA CONVERSA</p><h2>Seu desafio precisa de<br><em>visão técnica e operacional?</em></h2><p>Vamos conversar sobre produtos, automação, IA ou dados que precisam sair do papel e funcionar de verdade.</p><div class="contact-actions"><a class="button button-light" href="mailto:angelicarejan@outlook.com">Enviar um e-mail <span>↗</span></a><a href="tel:+5543991272686">+55 43 99127-2686</a></div><footer><span>© <span id="year"></span> ANGELICA REJAN SILVA</span><span>LONDRINA · BRASIL</span><div><a href="https://github.com/angelrejansilva-sketch" target="_blank" rel="noreferrer">GitHub</a><a href="https://www.linkedin.com/in/angelica-r-aa426b35" target="_blank" rel="noreferrer">LinkedIn</a></div></footer></section>
+  </main>
 </body>
 </html>

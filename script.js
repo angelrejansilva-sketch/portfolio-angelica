@@ -1,139 +1,23 @@
-document.getElementById('year').textContent = new Date().getFullYear();
-
-// HERO PHOTO TILT + POINTER GLOW
-const photoFrame = document.querySelector('.photo-frame');
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const supportsHover = window.matchMedia('(hover: hover)').matches;
-if (photoFrame && !prefersReducedMotion && supportsHover) {
-  const maxTilt = 12;
-  photoFrame.addEventListener('mouseenter', () => {
-    photoFrame.classList.add('is-active');
-  });
-  photoFrame.addEventListener('mousemove', (e) => {
-    const rect = photoFrame.getBoundingClientRect();
-    const px = (e.clientX - rect.left) / rect.width;
-    const py = (e.clientY - rect.top) / rect.height;
-    const ry = (px - 0.5) * maxTilt * 2;
-    const rx = (0.5 - py) * maxTilt * 2;
-    photoFrame.style.setProperty('--rx', rx.toFixed(2) + 'deg');
-    photoFrame.style.setProperty('--ry', ry.toFixed(2) + 'deg');
-    photoFrame.style.setProperty('--mx', (px * 100).toFixed(1) + '%');
-    photoFrame.style.setProperty('--my', (py * 100).toFixed(1) + '%');
-  });
-  photoFrame.addEventListener('mouseleave', () => {
-    photoFrame.classList.remove('is-active');
-    photoFrame.style.setProperty('--rx', '0deg');
-    photoFrame.style.setProperty('--ry', '0deg');
-  });
-}
-
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 10);
-});
-
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.getElementById('navLinks');
-navToggle.addEventListener('click', () => {
-  const open = navLinks.classList.toggle('open');
-  navToggle.classList.toggle('open', open);
-  navToggle.setAttribute('aria-expanded', open);
-});
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    navToggle.classList.remove('open');
-    navToggle.setAttribute('aria-expanded', 'false');
-  });
-});
-
-// SCROLL PROGRESS BAR
-const scrollProgress = document.getElementById('scrollProgress');
-function updateScrollProgress() {
-  const scrollTop = window.scrollY;
-  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-  scrollProgress.style.width = pct + '%';
-}
-window.addEventListener('scroll', updateScrollProgress);
-updateScrollProgress();
-
-// REVEAL ON SCROLL
-const revealItems = document.querySelectorAll('.reveal, .tl-item');
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('in-view');
-      revealObserver.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.15 });
-
-revealItems.forEach(item => {
-  if (!item.classList.contains('reveal')) item.classList.add('reveal');
-  revealObserver.observe(item);
-});
-
-// PROJECTS
 const projects = [
-  {
-    index: '01',
-    title: 'Nexo — Plataforma de Automação',
-    summary: 'Plataforma própria de automação, com motor de fluxo conversacional configurável, construída para substituir a dependência de uma ferramenta externa.',
-    challenge: 'A operação de atendimento dependia de uma ferramenta de automação externa, sem controle total sobre o fluxo de conversa, os dados e a evolução do produto — um risco crítico de estabilidade.',
-    solution: 'Construí do zero uma plataforma própria com motor de fluxo conversacional configurável em canvas visual, RBAC e log de auditoria desde a camada de banco, dando ao time controle total sobre a automação em produção.',
-    tags: ['Next.js', 'TypeScript', 'Supabase', 'React Flow']
-  },
-  {
-    index: '02',
-    title: 'NPS — Painel de Análise de Satisfação',
-    summary: 'Evolução do relatório de NPS em Power BI: dados no Supabase, importação auditável e um chat de análise por IA sobre os dados filtrados.',
-    challenge: 'O relatório de NPS existente tinha erros de cálculo conhecidos — denominador que não excluía respostas inválidas, classificação de equipamento por comparação exata e ranking de detratores na direção errada.',
-    solution: 'Painel com dados no Supabase (RLS por perfil), normalização auditável na importação e uma sincronização automática via pipeline Python. Inclui um chat de "Análise por IA" (Claude, streaming) que responde perguntas em linguagem natural sobre os dados já filtrados, sem enviar dado sensível ao modelo.',
-    tags: ['Next.js', 'Supabase', 'Claude API', 'Python']
-  },
-  {
-    index: '03',
-    title: 'HAAS — Portal de Vistoria de Equipamentos',
-    summary: 'Sistema de gestão de inspeção de equipamentos em campo, com análise de fotos por IA e deploy resiliente em Kubernetes.',
-    challenge: 'As vistorias de equipamentos em campo precisavam de um jeito rápido e confiável de analisar fotos e apontar avarias, com uma esteira de deploy que aguentasse produção.',
-    solution: 'Backend em Node/Express/TypeScript e frontend em React/Vite, com análise de fotos usando fallback automático entre modelos Claude (Haiku → Sonnet → Opus) e retry com backoff. Pipeline de CI/CD no GitLab com build Docker e deploy em Kubernetes.',
-    tags: ['Node.js', 'React', 'Claude API', 'Docker / K8s']
-  }
+  {index:'CASE 01',title:'Plataforma própria de automação',intro:'Uma operação crítica deixou de depender de uma ferramenta externa instável e ganhou uma plataforma sob controle do próprio time.',challenge:'A operação de atendimento dependia de uma solução externa com problemas de estabilidade, pouca autonomia e evolução limitada por processo.',solution:'Conduzi a construção de uma plataforma com motor conversacional configurável, decisão automática de canal, controle por perfis e auditoria desde o banco de dados.',tags:['Full Stack','Next.js','Supabase','RPA']},
+  {index:'CASE 02',title:'NPS com dados auditáveis e leitura por IA',intro:'Dados de satisfação foram reorganizados para gerar indicadores confiáveis e perguntas em linguagem natural sobre o contexto filtrado.',challenge:'O relatório existente apresentava inconsistências de cálculo e classificação que comprometiam a leitura gerencial dos resultados.',solution:'Estruturei normalização auditável, sincronização por Python, regras de acesso e uma camada de análise por IA orientada aos dados selecionados.',tags:['Python','BI','Claude API','ETL']},
+  {index:'CASE 03',title:'Vistoria inteligente de equipamentos',intro:'Uma jornada de campo ganhou análise de imagens por IA e uma arquitetura preparada para operar com resiliência.',challenge:'As equipes precisavam registrar e avaliar avarias em equipamentos com rapidez, consistência e uma esteira confiável de entrega.',solution:'Desenhei uma solução web com análise de fotos, fallback entre modelos de IA, retentativas controladas e publicação conteinerizada.',tags:['React','Node.js','IA','Docker']}
 ];
 
-const projectsGrid = document.getElementById('projectsGrid');
-projects.forEach((project, i) => {
-  const card = document.createElement('button');
-  card.type = 'button';
-  card.className = 'project-card reveal';
-  card.setAttribute('aria-haspopup', 'dialog');
-  card.innerHTML = `
-    <div class="project-topline"><span>${project.index}</span><b>›</b></div>
-    <h3>${project.title}</h3>
-    <p class="project-summary">${project.summary}</p>
-    <div class="project-tags">${project.tags.map(t => `<span>${t}</span>`).join('')}</div>
-    <span class="project-more">Ver detalhes <b>→</b></span>
-  `;
-  card.addEventListener('click', () => openProjectDialog(project));
-  projectsGrid.appendChild(card);
-  revealObserver.observe(card);
-});
+const caseList=document.getElementById('caseList');
+projects.forEach((project)=>{const card=document.createElement('button');card.type='button';card.className='case-card reveal';card.setAttribute('aria-haspopup','dialog');card.innerHTML=`<span>${project.index.replace('CASE ','')}</span><div><h3>${project.title}</h3><div class="case-tags">${project.tags.map(tag=>`<span>${tag}</span>`).join('')}</div></div><p>${project.intro}</p><span class="case-arrow">↗</span>`;card.addEventListener('click',()=>openDialog(project));caseList.appendChild(card)});
 
-const dialog = document.getElementById('projectDialog');
-const dialogClose = document.getElementById('dialogClose');
+const dialog=document.getElementById('caseDialog');
+function openDialog(project){document.getElementById('dialogIndex').textContent=project.index;document.getElementById('dialogTitle').textContent=project.title;document.getElementById('dialogIntro').textContent=project.intro;document.getElementById('dialogChallenge').textContent=project.challenge;document.getElementById('dialogSolution').textContent=project.solution;document.getElementById('dialogTags').innerHTML=project.tags.map(tag=>`<span>${tag}</span>`).join('');dialog.showModal()}
+document.getElementById('dialogClose').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close()});
 
-function openProjectDialog(project) {
-  document.getElementById('dialogIndex').textContent = `Projeto ${project.index}`;
-  document.getElementById('dialogTitle').textContent = project.title;
-  document.getElementById('dialogSummary').textContent = project.summary;
-  document.getElementById('dialogChallenge').textContent = project.challenge;
-  document.getElementById('dialogSolution').textContent = project.solution;
-  document.getElementById('dialogTags').innerHTML = project.tags.map(t => `<span>${t}</span>`).join('');
-  dialog.showModal();
-}
+document.getElementById('year').textContent=new Date().getFullYear();
+const progress=document.getElementById('progress');const header=document.getElementById('siteHeader');
+function onScroll(){const height=document.documentElement.scrollHeight-innerHeight;progress.style.width=`${height>0?scrollY/height*100:0}%`;header.classList.toggle('scrolled',scrollY>20)}window.addEventListener('scroll',onScroll,{passive:true});onScroll();
 
-dialogClose.addEventListener('click', () => dialog.close());
-dialog.addEventListener('click', (e) => {
-  if (e.target === dialog) dialog.close();
-});
+const menuButton=document.getElementById('menuButton');const navLinks=document.getElementById('navLinks');menuButton.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(open))});navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{navLinks.classList.remove('open');menuButton.setAttribute('aria-expanded','false')}));
+
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('in-view');observer.unobserve(entry.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(item=>observer.observe(item));
+
+const finePointer=matchMedia('(hover:hover) and (pointer:fine)').matches;const reduced=matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(finePointer&&!reduced){const glow=document.querySelector('.cursor-glow');window.addEventListener('pointermove',event=>{glow.style.opacity='1';glow.style.left=`${event.clientX}px`;glow.style.top=`${event.clientY}px`});const portrait=document.getElementById('portrait');portrait.addEventListener('pointermove',event=>{const rect=portrait.getBoundingClientRect();const x=(event.clientX-rect.left)/rect.width-.5;const y=(event.clientY-rect.top)/rect.height-.5;portrait.style.transform=`perspective(900px) rotateY(${x*9}deg) rotateX(${-y*9}deg)`});portrait.addEventListener('pointerleave',()=>portrait.style.transform='')}
