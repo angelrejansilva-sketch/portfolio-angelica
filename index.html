@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0c10">
 <title>Angelica Rejan Silva — Desenvolvedora Full Stack</title>
 <meta name="description" content="Angelica Rejan Silva — Desenvolvedora Full Stack, Condução Técnica de IA e RPA. Python, Next.js, JavaScript, Data Lake & Banco de Dados.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,19 +13,21 @@
 </head>
 <body>
 
-<div class="noise"></div>
+<div class="noise" aria-hidden="true"></div>
+<div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
 
 <header class="nav" id="nav">
   <div class="nav-inner">
     <a href="#top" class="logo">A<span>R</span>S</a>
-    <nav class="nav-links">
+    <nav class="nav-links" id="navLinks">
       <a href="#sobre">Sobre</a>
       <a href="#skills">Skills</a>
+      <a href="#projetos">Projetos</a>
       <a href="#experiencia">Experiência</a>
       <a href="#formacao">Formação</a>
       <a href="#contato">Contato</a>
     </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -32,7 +35,9 @@
 
 <main>
   <section class="hero" id="top">
+    <div class="hero-grid" aria-hidden="true"></div>
     <div class="hero-inner">
+      <div class="signal-pill"><span class="signal-dot"></span> DISPONÍVEL PARA NOVAS OPORTUNIDADES</div>
       <p class="eyebrow">Londrina, Paraná, Brasil</p>
       <h1>Angelica Rejan Silva</h1>
       <p class="hero-role">Desenvolvedora Full Stack — Condução Técnica de IA &amp; RPA</p>
@@ -40,7 +45,7 @@
       <p class="hero-desc">15+ anos em Tecnologia construindo soluções que realmente entram em produção — automação inteligente, agentes de IA e dados com qualidade e rastreabilidade.</p>
       <div class="hero-cta">
         <a href="#contato" class="btn btn-primary">Entrar em contato</a>
-        <a href="#experiencia" class="btn btn-ghost">Ver experiência</a>
+        <a href="#projetos" class="btn btn-ghost">Ver projetos</a>
       </div>
     </div>
     <div class="hero-scroll" aria-hidden="true">
@@ -50,7 +55,7 @@
   </section>
 
   <section class="section" id="sobre">
-    <div class="section-inner">
+    <div class="section-inner reveal">
       <p class="section-tag">01 — Sobre</p>
       <h2>Da estabilidade operacional à engenharia de ponta a ponta</h2>
       <p class="lead">
@@ -66,15 +71,15 @@
         de Data Lake, garantindo ETL de dados corporativos com qualidade e rastreabilidade.
       </p>
       <div class="stats">
-        <div class="stat"><span class="stat-num">15+</span><span class="stat-label">anos em tecnologia</span></div>
-        <div class="stat"><span class="stat-num">1</span><span class="stat-label">plataforma própria de automação criada do zero</span></div>
-        <div class="stat"><span class="stat-num">5+</span><span class="stat-label">áreas de stakeholders geridas (TI, Logística, Operações, Financeiro, Treinamento)</span></div>
+        <div class="stat reveal"><span class="stat-num">15+</span><span class="stat-label">anos em tecnologia</span></div>
+        <div class="stat reveal"><span class="stat-num">1</span><span class="stat-label">plataforma própria de automação criada do zero</span></div>
+        <div class="stat reveal"><span class="stat-num">5+</span><span class="stat-label">áreas de stakeholders geridas (TI, Logística, Operações, Financeiro, Treinamento)</span></div>
       </div>
     </div>
   </section>
 
   <section class="section section-alt" id="skills">
-    <div class="section-inner">
+    <div class="section-inner reveal">
       <p class="section-tag">02 — Competências</p>
       <h2>Stack &amp; frentes de atuação</h2>
       <div class="skills-grid">
@@ -106,9 +111,30 @@
     </div>
   </section>
 
-  <section class="section" id="experiencia">
-    <div class="section-inner">
-      <p class="section-tag">03 — Experiência</p>
+  <section class="section" id="projetos">
+    <div class="section-inner reveal">
+      <p class="section-tag">03 — Projetos</p>
+      <h2>Sistemas que resolvem problemas reais de operação</h2>
+      <p class="lead">Da investigação do problema à entrega em produção — projetos construídos para simplificar decisões, eliminar tarefas manuais e dar visibilidade a quem lidera.</p>
+      <div class="projects-grid" id="projectsGrid"></div>
+    </div>
+  </section>
+
+  <dialog class="project-dialog" id="projectDialog" aria-labelledby="dialogTitle">
+    <button type="button" class="dialog-close" id="dialogClose" aria-label="Fechar detalhes">×</button>
+    <p class="dialog-index" id="dialogIndex"></p>
+    <h3 id="dialogTitle"></h3>
+    <p class="dialog-summary" id="dialogSummary"></p>
+    <div class="dialog-grid">
+      <div><span>O desafio</span><p id="dialogChallenge"></p></div>
+      <div><span>A solução</span><p id="dialogSolution"></p></div>
+    </div>
+    <div class="dialog-tags" id="dialogTags"></div>
+  </dialog>
+
+  <section class="section section-alt" id="experiencia">
+    <div class="section-inner reveal">
+      <p class="section-tag">04 — Experiência</p>
       <h2>Trajetória profissional</h2>
       <ol class="timeline">
         <li class="tl-item">
@@ -160,9 +186,9 @@
     </div>
   </section>
 
-  <section class="section section-alt" id="formacao">
-    <div class="section-inner">
-      <p class="section-tag">04 — Formação</p>
+  <section class="section" id="formacao">
+    <div class="section-inner reveal">
+      <p class="section-tag">05 — Formação</p>
       <h2>Formação acadêmica &amp; certificações</h2>
       <div class="edu-grid">
         <div class="edu-col">
@@ -190,8 +216,8 @@
   </section>
 
   <section class="section contact" id="contato">
-    <div class="section-inner">
-      <p class="section-tag">05 — Contato</p>
+    <div class="section-inner reveal">
+      <p class="section-tag">06 — Contato</p>
       <h2>Vamos conversar?</h2>
       <p class="lead">Aberta a novas oportunidades e conexões em desenvolvimento full stack, IA e automação.</p>
       <div class="contact-grid">
