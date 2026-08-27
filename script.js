@@ -1,5 +1,32 @@
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// HERO PHOTO TILT + POINTER GLOW
+const photoFrame = document.querySelector('.photo-frame');
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const supportsHover = window.matchMedia('(hover: hover)').matches;
+if (photoFrame && !prefersReducedMotion && supportsHover) {
+  const maxTilt = 12;
+  photoFrame.addEventListener('mouseenter', () => {
+    photoFrame.classList.add('is-active');
+  });
+  photoFrame.addEventListener('mousemove', (e) => {
+    const rect = photoFrame.getBoundingClientRect();
+    const px = (e.clientX - rect.left) / rect.width;
+    const py = (e.clientY - rect.top) / rect.height;
+    const ry = (px - 0.5) * maxTilt * 2;
+    const rx = (0.5 - py) * maxTilt * 2;
+    photoFrame.style.setProperty('--rx', rx.toFixed(2) + 'deg');
+    photoFrame.style.setProperty('--ry', ry.toFixed(2) + 'deg');
+    photoFrame.style.setProperty('--mx', (px * 100).toFixed(1) + '%');
+    photoFrame.style.setProperty('--my', (py * 100).toFixed(1) + '%');
+  });
+  photoFrame.addEventListener('mouseleave', () => {
+    photoFrame.classList.remove('is-active');
+    photoFrame.style.setProperty('--rx', '0deg');
+    photoFrame.style.setProperty('--ry', '0deg');
+  });
+}
+
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 10);
