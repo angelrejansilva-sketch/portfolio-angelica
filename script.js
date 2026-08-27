@@ -32,7 +32,7 @@ window.addEventListener('scroll', updateScrollProgress);
 updateScrollProgress();
 
 // REVEAL ON SCROLL
-const revealItems = document.querySelectorAll('.reveal, .skill-card, .tl-item, .contact-card');
+const revealItems = document.querySelectorAll('.reveal, .tl-item');
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -67,27 +67,11 @@ const projects = [
   },
   {
     index: '03',
-    title: 'Backlog IA Serviços — Portal de Demandas',
-    summary: 'Portal para organizar, acompanhar e priorizar demandas de projetos da equipe, com perfis de acesso e uso responsivo em campo.',
-    challenge: 'A equipe não tinha um lugar único para organizar e acompanhar demandas de projetos, nem controle claro de quem podia criar, editar ou deletar cada item.',
-    solution: 'Portal com login seguro, CRUD completo de demandas, perfis de admin e analista, filtros por colaborador/status/prioridade e painel administrativo — responsivo para uso tanto em computador quanto em celular.',
-    tags: ['JavaScript', 'Supabase', 'Autenticação', 'Responsivo']
-  },
-  {
-    index: '04',
     title: 'HAAS — Portal de Vistoria de Equipamentos',
     summary: 'Sistema de gestão de inspeção de equipamentos em campo, com análise de fotos por IA e deploy resiliente em Kubernetes.',
     challenge: 'As vistorias de equipamentos em campo precisavam de um jeito rápido e confiável de analisar fotos e apontar avarias, com uma esteira de deploy que aguentasse produção.',
     solution: 'Backend em Node/Express/TypeScript e frontend em React/Vite, com análise de fotos usando fallback automático entre modelos Claude (Haiku → Sonnet → Opus) e retry com backoff. Pipeline de CI/CD no GitLab com build Docker e deploy em Kubernetes.',
     tags: ['Node.js', 'React', 'Claude API', 'Docker / K8s']
-  },
-  {
-    index: '05',
-    title: 'Certificado Python — Geração Automática',
-    summary: 'Script Python acionado por automação que preenche certificados a partir de respostas de formulário, sem intervenção manual.',
-    challenge: 'Emitir manualmente um certificado de conclusão para cada resposta de formulário era lento, repetitivo e sujeito a erro de digitação.',
-    solution: 'Script Python (docxtpl) acionado pelo Power Automate: recebe os dados da resposta em JSON, preenche um template .docx com as variáveis do participante e devolve o arquivo pronto — pipeline de ponta a ponta sem intervenção manual.',
-    tags: ['Python', 'docxtpl', 'Power Automate']
   }
 ];
 
