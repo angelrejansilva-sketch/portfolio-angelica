@@ -57,3 +57,23 @@
 }
 
 @media(prefers-reduced-motion:reduce){.tech-keyword{animation:none}}
+
+/* As etiquetas pertencem às trilhas: viajam com os pontos e permanecem legíveis */
+.tech-keyword{animation:none}
+.ring-one .tech-keyword{animation:label-counter-26 26s linear infinite}
+.ring-two .tech-keyword{animation:label-counter-19 19s linear infinite}
+.ring-three .tech-keyword{animation:label-counter-32 32s linear infinite}
+.ring-one .keyword-ai{left:-68px;top:58px}
+.ring-one .keyword-auto{right:-102px;bottom:52px}
+.ring-two .keyword-python{right:-78px;top:28px}
+.ring-three .keyword-data{left:-76px;bottom:96px}
+.tech-keyword::after{content:"";position:absolute;top:50%;width:34px;height:1px;background:linear-gradient(90deg,currentColor,transparent);opacity:.65}
+.tech-keyword::before{content:"";position:absolute;top:calc(50% - 3px);width:6px;height:6px;border:1px solid currentColor;background:var(--bg);box-shadow:0 0 9px currentColor}
+.keyword-ai::after,.keyword-data::after{left:100%}
+.keyword-ai::before,.keyword-data::before{left:calc(100% + 30px)}
+.keyword-python::after,.keyword-auto::after{right:100%;transform:scaleX(-1)}
+.keyword-python::before,.keyword-auto::before{right:calc(100% + 30px)}
+@keyframes label-counter-26{to{transform:rotate(-360deg)}}
+@keyframes label-counter-19{from{transform:rotate(-360deg)}to{transform:rotate(0)}}
+@keyframes label-counter-32{to{transform:rotate(-360deg)}}
+@media(prefers-reduced-motion:reduce){.ring-one .tech-keyword,.ring-two .tech-keyword,.ring-three .tech-keyword{animation:none}}
