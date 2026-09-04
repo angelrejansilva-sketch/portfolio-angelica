@@ -38,3 +38,10 @@
 }
 
 @media(prefers-reduced-motion:reduce){.circuit-ring{animation:none}}
+
+/* Trilhas tecnológicas: linhas angulares atrás da foto e etiquetas à frente */
+.tech-orbit{z-index:auto}
+.circuit-ring{z-index:1}
+.ring-one{border-radius:8px 92px 8px 64px}
+.ring-two{border-radius:70px 8px 70px 8px}
+.ring-three{border-radius:8px 64px 8px 64px}
