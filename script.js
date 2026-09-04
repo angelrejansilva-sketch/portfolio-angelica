@@ -19,3 +19,16 @@ function onScroll(){const height=document.documentElement.scrollHeight-innerHeig
 const menuButton=document.getElementById('menuButton');const navLinks=document.getElementById('navLinks');menuButton.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(open))});navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{navLinks.classList.remove('open');menuButton.setAttribute('aria-expanded','false')}));
 
 const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('in-view');observer.unobserve(entry.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(item=>observer.observe(item));
+
+const finePointer=matchMedia('(hover:hover) and (pointer:fine)').matches;
+const reducedMotion=matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(finePointer&&!reducedMotion){
+  const portrait=document.getElementById('portrait');
+  portrait.addEventListener('pointermove',event=>{
+    const rect=portrait.getBoundingClientRect();
+    const x=(event.clientX-rect.left)/rect.width-.5;
+    const y=(event.clientY-rect.top)/rect.height-.5;
+    portrait.style.transform=`perspective(900px) rotateY(${x*8}deg) rotateX(${-y*8}deg) translateY(-5px)`;
+  });
+  portrait.addEventListener('pointerleave',()=>{portrait.style.transform=''});
+}
