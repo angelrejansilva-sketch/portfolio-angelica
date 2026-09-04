@@ -77,3 +77,7 @@
 @keyframes label-counter-19{from{transform:rotate(-360deg)}to{transform:rotate(0)}}
 @keyframes label-counter-32{to{transform:rotate(-360deg)}}
 @media(prefers-reduced-motion:reduce){.ring-one .tech-keyword,.ring-two .tech-keyword,.ring-three .tech-keyword{animation:none}}
+
+.tech-keyword::after{width:68px;background:currentColor;opacity:.48}
+.keyword-ai::before,.keyword-data::before{left:calc(100% + 64px)}
+.keyword-python::before,.keyword-auto::before{right:calc(100% + 64px)}
