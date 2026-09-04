@@ -89,3 +89,6 @@
 .tech-orbit>.keyword-python{right:0;top:29%}
 .tech-orbit>.keyword-data{left:-1%;bottom:24%}
 .tech-orbit>.keyword-auto{right:-3%;bottom:13%}
+
+/* Remove o feixe solto que atravessava a foto */
+.portrait::before{display:none;animation:none}
