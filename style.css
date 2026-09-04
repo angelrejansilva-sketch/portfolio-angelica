@@ -45,3 +45,15 @@
 .ring-one{border-radius:8px 92px 8px 64px}
 .ring-two{border-radius:70px 8px 70px 8px}
 .ring-three{border-radius:8px 64px 8px 64px}
+.tech-keyword{animation:keyword-float 4.8s ease-in-out infinite}
+.keyword-python{animation-delay:-1.2s}
+.keyword-data{animation-delay:-2.4s}
+.keyword-auto{animation-delay:-3.6s}
+
+@keyframes keyword-float{
+  0%,100%{transform:translate3d(0,0,0)}
+  35%{transform:translate3d(7px,-9px,0)}
+  70%{transform:translate3d(-4px,5px,0)}
+}
+
+@media(prefers-reduced-motion:reduce){.tech-keyword{animation:none}}
